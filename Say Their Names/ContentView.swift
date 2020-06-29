@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct ContentView: View {
     let shootingIncidents = Bundle.main.decode([IncidentRecord].self, from: "shooting-incidents")
@@ -13,7 +14,28 @@ struct ContentView: View {
 
 
     var body: some View {
-        Text("Hello, \(shootingIncidents.first!.victimName)").padding()
+        ScrollView {
+            VStack {
+                ForEach(shootingIncidents, id: \.id) { incident in
+//                    HStack {
+//                        VStack {
+                            Text(incident.victimName).bold()
+//                            Text("Killed by \(incident.responsibleAgency) in \(incident.city), \(incident.state)")
+                        }
+//                        if (incident.victimName != "Name withheld by police") {
+//                            Button("Say name", action: {
+//                                let utterance = AVSpeechUtterance(string: incident.victimName)
+//                                utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+//                                utterance.rate = 0.1
+//
+//                                let synthesizer = AVSpeechSynthesizer()
+//                                synthesizer.speak(utterance)
+//                            })
+//                        }
+                    }
+//                }
+//            }
+        }
     }
 }
 
