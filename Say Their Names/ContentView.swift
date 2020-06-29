@@ -16,10 +16,10 @@ struct ContentView: View {
             VStack {
                 ForEach(getPaginatedList(offset: 0), id: \.id) { incident in
                     HStack {
-//                        VStack {
+                        VStack {
                             Text(incident.victimName).bold()
-//                            Text("Killed by \(incident.responsibleAgency) in \(incident.city), \(incident.state)")
-//                        }
+                            Text("Killed by \(incident.responsibleAgency) in \(incident.city), \(incident.state)")
+                        }
                         if (incident.victimName != "Name withheld by police") {
                             Button("Say name", action: {
                                 let utterance = AVSpeechUtterance(string: incident.victimName)
