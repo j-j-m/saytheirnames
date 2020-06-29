@@ -24,7 +24,7 @@ struct ContentView: View {
                             Button("Say name", action: {
                                 let utterance = AVSpeechUtterance(string: incident.victimName)
                                 utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-                                utterance.rate = 0.1
+                                utterance.rate = 0.5
 
                                 let synthesizer = AVSpeechSynthesizer()
                                 synthesizer.speak(utterance)
