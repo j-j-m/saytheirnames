@@ -17,6 +17,7 @@
 		9DCEF34E24A9821000546A8E /* Say_Their_NamesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCEF34D24A9821000546A8E /* Say_Their_NamesUITests.swift */; };
 		9DCEF35C24A9829000546A8E /* BundleDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCEF35B24A9829000546A8E /* BundleDecoder.swift */; };
 		9DCEF36024A9830A00546A8E /* IncidentRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCEF35F24A9830A00546A8E /* IncidentRecord.swift */; };
+		9DCEF36224A988A800546A8E /* shooting-incidents.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DCEF36124A9838C00546A8E /* shooting-incidents.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -247,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DCEF36224A988A800546A8E /* shooting-incidents.json in Resources */,
 				9DCEF33824A9821000546A8E /* LaunchScreen.storyboard in Resources */,
 				9DCEF33524A9821000546A8E /* Preview Assets.xcassets in Resources */,
 				9DCEF33224A9821000546A8E /* Assets.xcassets in Resources */,
