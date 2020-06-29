@@ -15,21 +15,21 @@ struct ContentView: View {
         ScrollView {
             VStack {
                 ForEach(getPaginatedList(offset: 0), id: \.id) { incident in
-                    HStack {
-                        VStack {
+                    VStack {
+                        HStack {
                             Text(incident.victimName).bold()
-                            Text("Killed by \(incident.responsibleAgency) in \(incident.city), \(incident.state)")
-                        }
-                        if (incident.victimName != "Name withheld by police") {
-                            Button("Say \(incident.victimGender == "Male" ? "his" : incident.victimGender == "Female" ? "her" : "their") name", action: {
-                                let utterance = AVSpeechUtterance(string: incident.victimName)
-                                utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-                                utterance.rate = 0.5
+                            if (incident.victimName != "Name withheld by police") {
+                                Button("Say \(incident.victimGender == "Male" ? "his" : incident.victimGender == "Female" ? "her" : "their") name", action: {
+                                    let utterance = AVSpeechUtterance(string: incident.victimName)
+                                    utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+                                    utterance.rate = 0.5
 
-                                let synthesizer = AVSpeechSynthesizer()
-                                synthesizer.speak(utterance)
-                            })
+                                    let synthesizer = AVSpeechSynthesizer()
+                                    synthesizer.speak(utterance)
+                                })
+                            }
                         }
+                        Text("Killed by \(incident.responsibleAgency) in \(incident.city), \(incident.state)")
                     }
                 }
             }
