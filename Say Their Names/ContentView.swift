@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    let shootingIncidents = Bundle.main.decode([IncidentRecord].self, from: "shooting-incidents")
+
+
+
     var body: some View {
-        Text("Hello, world!").padding()
+        Text("Hello, \(shootingIncidents.first!.victimName)").padding()
     }
 }
 

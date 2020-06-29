@@ -15,6 +15,8 @@
 		9DCEF33824A9821000546A8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DCEF33624A9821000546A8E /* LaunchScreen.storyboard */; };
 		9DCEF34324A9821000546A8E /* Say_Their_NamesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCEF34224A9821000546A8E /* Say_Their_NamesTests.swift */; };
 		9DCEF34E24A9821000546A8E /* Say_Their_NamesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCEF34D24A9821000546A8E /* Say_Their_NamesUITests.swift */; };
+		9DCEF35C24A9829000546A8E /* BundleDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCEF35B24A9829000546A8E /* BundleDecoder.swift */; };
+		9DCEF36024A9830A00546A8E /* IncidentRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCEF35F24A9830A00546A8E /* IncidentRecord.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,9 @@
 		9DCEF34924A9821000546A8E /* Say Their NamesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Say Their NamesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DCEF34D24A9821000546A8E /* Say_Their_NamesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Say_Their_NamesUITests.swift; sourceTree = "<group>"; };
 		9DCEF34F24A9821000546A8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DCEF35B24A9829000546A8E /* BundleDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleDecoder.swift; sourceTree = "<group>"; };
+		9DCEF35F24A9830A00546A8E /* IncidentRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncidentRecord.swift; sourceTree = "<group>"; };
+		9DCEF36124A9838C00546A8E /* shooting-incidents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "shooting-incidents.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,9 +107,12 @@
 				9DCEF32B24A9820D00546A8E /* AppDelegate.swift */,
 				9DCEF32D24A9820D00546A8E /* SceneDelegate.swift */,
 				9DCEF32F24A9820D00546A8E /* ContentView.swift */,
+				9DCEF35F24A9830A00546A8E /* IncidentRecord.swift */,
 				9DCEF33124A9821000546A8E /* Assets.xcassets */,
 				9DCEF33624A9821000546A8E /* LaunchScreen.storyboard */,
 				9DCEF33924A9821000546A8E /* Info.plist */,
+				9DCEF35B24A9829000546A8E /* BundleDecoder.swift */,
+				9DCEF36124A9838C00546A8E /* shooting-incidents.json */,
 				9DCEF33324A9821000546A8E /* Preview Content */,
 			);
 			path = "Say Their Names";
@@ -268,6 +276,8 @@
 			files = (
 				9DCEF32C24A9820D00546A8E /* AppDelegate.swift in Sources */,
 				9DCEF32E24A9820D00546A8E /* SceneDelegate.swift in Sources */,
+				9DCEF35C24A9829000546A8E /* BundleDecoder.swift in Sources */,
+				9DCEF36024A9830A00546A8E /* IncidentRecord.swift in Sources */,
 				9DCEF33024A9820D00546A8E /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,6 +451,7 @@
 				DEVELOPMENT_TEAM = UDX8TXP8BP;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Say Their Names/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -462,6 +473,7 @@
 				DEVELOPMENT_TEAM = UDX8TXP8BP;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Say Their Names/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
