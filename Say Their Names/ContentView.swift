@@ -21,7 +21,7 @@ struct ContentView: View {
 //                        VStack {
                             Text(incident.victimName).bold()
 //                            Text("Killed by \(incident.responsibleAgency) in \(incident.city), \(incident.state)")
-                        }
+//                        }
 //                        if (incident.victimName != "Name withheld by police") {
 //                            Button("Say name", action: {
 //                                let utterance = AVSpeechUtterance(string: incident.victimName)
@@ -33,7 +33,7 @@ struct ContentView: View {
 //                            })
 //                        }
                     }
-//                }
+                }
 //            }
         }
     }
