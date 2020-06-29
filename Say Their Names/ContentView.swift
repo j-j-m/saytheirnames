@@ -21,7 +21,7 @@ struct ContentView: View {
                             Text("Killed by \(incident.responsibleAgency) in \(incident.city), \(incident.state)")
                         }
                         if (incident.victimName != "Name withheld by police") {
-                            Button("Say name", action: {
+                            Button("Say \(incident.victimGender == "Male" ? "his" : incident.victimGender == "Female" ? "her" : "their") name", action: {
                                 let utterance = AVSpeechUtterance(string: incident.victimName)
                                 utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
                                 utterance.rate = 0.5
