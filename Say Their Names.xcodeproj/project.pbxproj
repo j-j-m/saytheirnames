@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,10 @@
 		9DCEF36024A9830A00546A8E /* IncidentRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCEF35F24A9830A00546A8E /* IncidentRecord.swift */; };
 		9DCEF36224A988A800546A8E /* shooting-incidents.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DCEF36124A9838C00546A8E /* shooting-incidents.json */; };
 		A0977F0624AAD4D200FCBC34 /* StringRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0977F0524AAD4D200FCBC34 /* StringRepresentation.swift */; };
+		A0977F0924AADF1300FCBC34 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = A0977F0824AADF1300FCBC34 /* ComposableArchitecture */; };
+		A0977F0B24AADF1300FCBC34 /* ComposableCoreLocation in Frameworks */ = {isa = PBXBuildFile; productRef = A0977F0A24AADF1300FCBC34 /* ComposableCoreLocation */; };
+		A0977F0D24AADF3400FCBC34 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0977F0C24AADF3400FCBC34 /* App.swift */; };
+		A0977F1124AAEE4300FCBC34 /* IncedentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0977F1024AAEE4300FCBC34 /* IncedentService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +61,8 @@
 		9DCEF35F24A9830A00546A8E /* IncidentRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncidentRecord.swift; sourceTree = "<group>"; };
 		9DCEF36124A9838C00546A8E /* shooting-incidents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "shooting-incidents.json"; sourceTree = "<group>"; };
 		A0977F0524AAD4D200FCBC34 /* StringRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringRepresentation.swift; sourceTree = "<group>"; };
+		A0977F0C24AADF3400FCBC34 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		A0977F1024AAEE4300FCBC34 /* IncedentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncedentService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0977F0924AADF1300FCBC34 /* ComposableArchitecture in Frameworks */,
+				A0977F0B24AADF1300FCBC34 /* ComposableCoreLocation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,10 +115,11 @@
 		9DCEF32A24A9820D00546A8E /* Say Their Names */ = {
 			isa = PBXGroup;
 			children = (
+				A0977F0C24AADF3400FCBC34 /* App.swift */,
 				9DCEF32B24A9820D00546A8E /* AppDelegate.swift */,
 				9DCEF32D24A9820D00546A8E /* SceneDelegate.swift */,
 				9DCEF32F24A9820D00546A8E /* ContentView.swift */,
-				9DCEF35F24A9830A00546A8E /* IncidentRecord.swift */,
+				A0977F0F24AAEE2900FCBC34 /* Incedents */,
 				A0977F0524AAD4D200FCBC34 /* StringRepresentation.swift */,
 				9DCEF33124A9821000546A8E /* Assets.xcassets */,
 				9DCEF33624A9821000546A8E /* LaunchScreen.storyboard */,
@@ -148,6 +157,15 @@
 			path = "Say Their NamesUITests";
 			sourceTree = "<group>";
 		};
+		A0977F0F24AAEE2900FCBC34 /* Incedents */ = {
+			isa = PBXGroup;
+			children = (
+				9DCEF35F24A9830A00546A8E /* IncidentRecord.swift */,
+				A0977F1024AAEE4300FCBC34 /* IncedentService.swift */,
+			);
+			path = Incedents;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -165,6 +183,8 @@
 			);
 			name = "Say Their Names";
 			packageProductDependencies = (
+				A0977F0824AADF1300FCBC34 /* ComposableArchitecture */,
+				A0977F0A24AADF1300FCBC34 /* ComposableCoreLocation */,
 			);
 			productName = "Say Their Names";
 			productReference = 9DCEF32824A9820D00546A8E /* Say Their Names.app */;
@@ -238,6 +258,7 @@
 			);
 			mainGroup = 9DCEF31F24A9820D00546A8E;
 			packageReferences = (
+				A0977F0724AADF1300FCBC34 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = 9DCEF32924A9820D00546A8E /* Products */;
 			projectDirPath = "";
@@ -286,8 +307,10 @@
 				9DCEF32C24A9820D00546A8E /* AppDelegate.swift in Sources */,
 				A0977F0624AAD4D200FCBC34 /* StringRepresentation.swift in Sources */,
 				9DCEF32E24A9820D00546A8E /* SceneDelegate.swift in Sources */,
+				A0977F1124AAEE4300FCBC34 /* IncedentService.swift in Sources */,
 				9DCEF35C24A9829000546A8E /* BundleDecoder.swift in Sources */,
 				9DCEF36024A9830A00546A8E /* IncidentRecord.swift in Sources */,
+				A0977F0D24AADF3400FCBC34 /* App.swift in Sources */,
 				9DCEF33024A9820D00546A8E /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -619,6 +642,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A0977F0724AADF1300FCBC34 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A0977F0824AADF1300FCBC34 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A0977F0724AADF1300FCBC34 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		A0977F0A24AADF1300FCBC34 /* ComposableCoreLocation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A0977F0724AADF1300FCBC34 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableCoreLocation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9DCEF32024A9820D00546A8E /* Project object */;
 }

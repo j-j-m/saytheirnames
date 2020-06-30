@@ -7,43 +7,49 @@
 
 import SwiftUI
 import AVFoundation
+import ComposableArchitecture
 
 struct ContentView: View {
-    let shootingIncidents = Bundle.main.decode([IncidentRecord].self, from: "shooting-incidents")
-
+    
+    var store: Store<AppState, AppAction>
+    
     var body: some View {
-        ScrollView {
-            VStack {
-                ForEach(getPaginatedList(offset: 0), id: \.id) { incident in
-                    VStack {
-                        HStack {
-                            Text(incident.victimName).bold()
-                            if (incident.victimName != "Name withheld by police") {
-                                Button("Say \(incident.victimGender == "Male" ? "his" : incident.victimGender == "Female" ? "her" : "their") name", action: {
-                                    let utterance = AVSpeechUtterance(string: incident.victimName)
-                                    utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-                                    utterance.rate = 0.5
+        WithViewStore(store) { viewStore in
+                List {
+                    Text("Say Their Names").font(.largeTitle)
+                    ForEach(viewStore.incidents, id: \.id) { incident in
+                        VStack(alignment: .leading) {
+                            HStack {
+                                Text(incident.victimName).bold()
+                                if (incident.victimName != "Name withheld by police") {
+                                    Button("Say \(incident.victimGender == "Male" ? "his" : incident.victimGender == "Female" ? "her" : "their") name", action: {
+                                        let utterance = AVSpeechUtterance(string: incident.victimName)
+                                        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+                                        utterance.rate = 0.5
 
-                                    let synthesizer = AVSpeechSynthesizer()
-                                    synthesizer.speak(utterance)
-                                })
+                                        let synthesizer = AVSpeechSynthesizer()
+                                        synthesizer.speak(utterance)
+                                    })
+                                }
                             }
+                            Text("Killed by \(incident.responsibleAgency) in \(incident.city), \(incident.state)")
                         }
-                        Text("Killed by \(incident.responsibleAgency) in \(incident.city), \(incident.state)")
                     }
                 }
+            .onAppear {
+                viewStore.send(AppAction.loadIncedents)
             }
         }
     }
     
-    func getPaginatedList(offset: Int) -> ArraySlice<IncidentRecord> {
-        return self.shootingIncidents[offset..<(offset+100)]
-    }
+    //    func getPaginatedList(offset: Int) -> ArraySlice<IncidentRecord> {
+    //        return self.viewStore.shootingIncidents[offset..<(offset+100)]
+    //    }
 }
 
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}
