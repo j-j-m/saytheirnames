@@ -11,105 +11,32 @@ import Network
 struct IncidentRecord: Codable, Hashable {
     let id = UUID()
     let victimName: String
-    let victimAge: Int?
+    @StringRepresentation private(set) var victimAge: Int?
     let victimGender: String
     let victimRace: String
-    let imageURL: URL?
-    let incidentDate: Date?
+    @StringRepresentation private(set) var imageURL: URL?
+    @StringRepresentation private(set) var incidentDate: Date?
     let streetAddress: String
     let city: String
     let state: String
-    let zipcode: String
+    @StringRepresentation private(set) var zipcode: Int?
     let responsibleAgency: String
-//    let causeOfDeath: String
-//    let briefDescription: String
-//    let officialDisposition: String
-//    let criminalCharges: String
-    let newsURL: URL?
-//    let symptomsOfMentalIllness: String
-//    let reportedArmedState: String
-//    let allegedWeapon: String
-//    let allegedThreatLevel: String
-//    let fleeingType: String
-//    let bodyCameraActive: String
-//    let wapoId: Int?
-//    let offDutyKilling: String
-//    let geographyCategory: String
-//    let idInfo: String
+    let causeOfDeath: String
+    let briefDescription: String
+    let officialDisposition: String
+    let criminalCharges: String
+    @StringRepresentation private(set) var newsURL: URL?
+    let symptomsOfMentalIllness: String
+    let reportedArmedState: String
+    let allegedWeapon: String
+    let allegedThreatLevel: String
+    let fleeingType: String
+    let bodyCameraActive: String
+    @StringRepresentation private(set) var wapoId: Int?
+    let offDutyKilling: String
+    let geographyCategory: String
+    @StringRepresentation private(set) var idInfo: Int?
     
-//    init(from decoder: Decoder) throws {
-//        let values = try decoder.container(keyedBy: CodingKeys.self)
-//        imageURL = try values.decode(URL.self, forKey: .imageURL)
-//    }
-
-//    func getImageURL() -> URL? {
-//        guard let url = URL(string: self.imageURL) else { return nil }
-//        return url
-//    }
-    
-    init(from decoder: Decoder) throws {
-        let map = try decoder.container(keyedBy: CodingKeys.self)
-        do {
-            self.victimName = try map.decode(String.self, forKey: .victimName)
-        } catch {
-            self.victimName = ""
-        }
-        do {
-            self.victimAge = try map.decode(Int.self, forKey: .victimAge)
-        } catch {
-            self.victimAge = nil
-        }
-        do {
-            self.victimGender = try map.decode(String.self, forKey: .victimGender)
-        } catch {
-            self.victimGender = "Unknown"
-        }
-        do {
-            self.victimRace = try map.decode(String.self, forKey: .victimRace)
-        } catch {
-            self.victimRace = "Unknown"
-        }
-        do {
-            self.imageURL = try map.decode(URL.self, forKey: .imageURL)
-        } catch {
-            self.imageURL = nil
-        }
-        do {
-            self.incidentDate = try map.decode(Date.self, forKey: .incidentDate)
-        } catch {
-            self.incidentDate = nil
-        }
-        do {
-            self.streetAddress = try map.decode(String.self, forKey: .streetAddress)
-        } catch {
-            self.streetAddress = "Unknown"
-        }
-        do {
-            self.city = try map.decode(String.self, forKey: .city)
-        } catch {
-            self.city = "Unknown"
-        }
-        do {
-            self.state = try map.decode(String.self, forKey: .state)
-        } catch {
-            self.state = "Unknown"
-        }
-        do {
-            self.zipcode = try map.decode(String.self, forKey: .zipcode)
-        } catch {
-            self.zipcode = "Unknown"
-        }
-        do {
-            self.responsibleAgency = try map.decode(String.self, forKey: .responsibleAgency)
-        } catch {
-            self.responsibleAgency = "unknown agency"
-        }
-        do {
-            self.newsURL = try map.decode(URL.self, forKey: .newsURL)
-        } catch {
-            self.newsURL = nil
-        }
-    }
 }
 
 //"victim_name": "Chazz Hailey",
