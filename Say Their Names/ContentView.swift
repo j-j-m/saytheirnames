@@ -13,26 +13,28 @@ struct ContentView: View {
     let nameSayer = NameSayer()
 
     var body: some View {
-        ScrollView {
-            VStack {
-                Button("Say their names!", action: {
-                    saySomeNames(incidents: shootingIncidents, howMany: 20)
-                })
-                Spacer()
-                ForEach(getPaginatedList(offset: 0), id: \.id) { incident in
-                    VStack {
-                        HStack {
-                            Text(incident.victimName).bold()
-                            if (incident.victimName != "Name withheld by police") {
-                                Button("Say \(incident.victimGender == "Male" ? "his" : incident.victimGender == "Female" ? "her" : "their") name", action: {
-                                    say(whatToSay: incident.victimName)
-                                })
+        VStack {
+            ScrollView {
+                VStack {
+                    ForEach(getPaginatedList(offset: 0), id: \.id) { incident in
+                        VStack {
+                            HStack {
+                                Text(incident.victimName).bold()
+                                if (incident.victimName != "Name withheld by police") {
+                                    Button("Say \(incident.victimGender == "Male" ? "his" : incident.victimGender == "Female" ? "her" : "their") name", action: {
+                                        say(whatToSay: incident.victimName)
+                                    })
+                                }
                             }
+                            Text("Killed by \(incident.responsibleAgency) in \(incident.city), \(incident.state)")
                         }
-                        Text("Killed by \(incident.responsibleAgency) in \(incident.city), \(incident.state)")
                     }
                 }
             }
+            Spacer()
+            Button("Say their names!", action: {
+                saySomeNames(incidents: shootingIncidents, howMany: 20)
+            })
         }
     }
     
