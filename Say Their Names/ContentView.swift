@@ -15,9 +15,10 @@ struct ContentView: View {
     var body: some View {
         VStack {
             ScrollView {
-                VStack {
+                Spacer()
+                VStack(alignment: .leading) {
                     ForEach(getPaginatedList(offset: 0), id: \.id) { incident in
-                        VStack {
+                        VStack(alignment: .leading) {
                             HStack {
                                 Text(incident.victimName).bold()
                                 if (incident.victimName != "Name withheld by police") {
@@ -27,6 +28,7 @@ struct ContentView: View {
                                 }
                             }
                             Text("Killed by \(incident.responsibleAgency) in \(incident.city), \(incident.state)")
+                            Spacer()
                         }
                     }
                 }
