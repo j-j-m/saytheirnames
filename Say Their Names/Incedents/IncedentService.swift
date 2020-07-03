@@ -24,6 +24,7 @@ struct IncedentsApiError: Error, Equatable {}
 func localIncidents() -> Effect<[IncidentRecord], IncedentsApiError> {
     return Just(Bundle.main.decode([IncidentRecord].self, from: "shooting-incidents"))
         .mapError { _ in IncedentsApiError() }
+//        .delay(for: 5, scheduler: DispatchQueue.main)
         .eraseToEffect()
 }
 

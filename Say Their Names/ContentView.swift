@@ -15,6 +15,7 @@ struct ContentView: View {
     
     var body: some View {
         WithViewStore(store) { viewStore in
+            if true {
                 List {
                     Text("Say Their Names").font(.largeTitle)
                     ForEach(viewStore.incidents, id: \.id) { incident in
@@ -36,8 +37,6 @@ struct ContentView: View {
                         }
                     }
                 }
-            .onAppear {
-                viewStore.send(AppAction.loadIncedents)
             }
         }
     }
