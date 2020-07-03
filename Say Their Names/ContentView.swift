@@ -15,7 +15,9 @@ struct ContentView: View {
     
     var body: some View {
         WithViewStore(store) { viewStore in
-            if true {
+            if viewStore.incidents.isEmpty {
+                Text("Loading...")
+            } else {
                 List {
                     Text("Say Their Names").font(.largeTitle)
                     ForEach(viewStore.incidents, id: \.id) { incident in
