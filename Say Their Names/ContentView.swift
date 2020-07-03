@@ -40,12 +40,44 @@ struct ContentView: View {
                     }
                 }
             }
+            Spacer()
+            Button("Say their names!", action: {
+                saySomeNames(incidents: shootingIncidents, howMany: 20)
+            })
         }
     }
     
-    //    func getPaginatedList(offset: Int) -> ArraySlice<IncidentRecord> {
-    //        return self.viewStore.shootingIncidents[offset..<(offset+100)]
-    //    }
+    func say(whatToSay: String) {
+        let utterance = AVSpeechUtterance(string: whatToSay)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.4
+
+        let synthesizer = AVSpeechSynthesizer()
+        synthesizer.speak(utterance)
+    }
+    
+    func saySomeNames(incidents: [IncidentRecord], howMany: Int) {
+        let range  = incidents.count - howMany
+        let offset = Int.random(in: 0 ..< range)
+        let limit = offset + howMany
+        
+        sayTheirNames(incidents: incidents[offset ..< limit])
+
+    }
+    
+    func sayTheirNames(incidents: ArraySlice<IncidentRecord>) {
+        var stuffToSay = ""
+        incidents.forEach { incident in
+            if (incident.victimName != "Name withheld by police") {
+                stuffToSay = "\(stuffToSay) Say \(incident.victimGender == "Male" ? "his" : incident.victimGender == "Female" ? "her" : "their") name! \(incident.victimName)!"
+            }
+        }
+        say(whatToSay: stuffToSay)
+    }
+    
+    func getPaginatedList(offset: Int) -> ArraySlice<IncidentRecord> {
+        return self.shootingIncidents[offset..<(offset+100)]
+    }
 }
 
 //
